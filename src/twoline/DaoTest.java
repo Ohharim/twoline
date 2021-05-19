@@ -13,7 +13,7 @@ public class DaoTest {
 		OnelineDTO dto = new OnelineDTO();
 		// 1. 데이터를 널어보고
 		dto.setMemo("TestTest");
-		dao.insert(dto);;
+		dao.insert(dto);
 		// 2. 그 데이터를 출력해보고
 		ArrayList<OnelineDTO> dtos = dao.getlist();
 		for(int i = 0 ; i < dtos.size(); i++) {
@@ -21,6 +21,12 @@ public class DaoTest {
 			System.out.println("no : " + dt.getNo() + ", memo: " + dt.getMemo() + ", date: " +dt.getWdate());
 		}
 		// 3. 그 데이터를 삭제하는 것 까지 
-
+		dao.delete(dto.getNo());
+		dtos = dao.getlist();
+		for(int i = 0 ; i < dtos.size(); i++) {
+			OnelineDTO dt = dtos.get(i);
+			System.out.println("no : " + dt.getNo() + ", memo: " + dt.getMemo() + ", date: " +dt.getWdate());
+		}
+		System.out.println("delete data");					
 	}
 }
